@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1f40f64d502541f4b9ff7361e5d2fba2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_1f40f64d502541f4b9ff7361e5d2fba2" ></div>
+        
+</body>
+<script>    
+    
+            var map_1f40f64d502541f4b9ff7361e5d2fba2 = L.map(
+                "map_1f40f64d502541f4b9ff7361e5d2fba2",
+                {
+                    center: [0, 0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bc54c99c9abb4d148fac6573b86fd52e = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var marker_6eb275e265454dd8bad602162aab3fb4 = L.marker(
+                [48.4525869, -2.0400839],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_f0690623822246e39f82e8d3c37bd68f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
+            );
+            marker_6eb275e265454dd8bad602162aab3fb4.setIcon(icon_f0690623822246e39f82e8d3c37bd68f);
+        
+    
+        var popup_58057403e9014fb4aeed7a4119ff1ba3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d2bf3d9440fb46de96c37220519c228c = $(`<div id="html_d2bf3d9440fb46de96c37220519c228c" style="width: 100.0%; height: 100.0%;">Adresse: 21 Rue Victor Basch, 22100 Dinan  Télépnone: None</div>`)[0];
+            popup_58057403e9014fb4aeed7a4119ff1ba3.setContent(html_d2bf3d9440fb46de96c37220519c228c);
+        
+
+        marker_6eb275e265454dd8bad602162aab3fb4.bindPopup(popup_58057403e9014fb4aeed7a4119ff1ba3)
+        ;
+
+        
+    
+    
+            marker_6eb275e265454dd8bad602162aab3fb4.bindTooltip(
+                `<div>
+                     Centre des Congrès de Dinan 1 - Vaccination Covid-19
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b4c8d3faa784832b08a48872893594a = L.marker(
+                [48.1071796, -1.1940449],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_1f2db8468ee64a1699ce12d7cbeeeb1b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3b4c8d3faa784832b08a48872893594a.setIcon(icon_1f2db8468ee64a1699ce12d7cbeeeb1b);
+        
+    
+        var popup_963ee699cc5d4058b403c9e138829f22 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4a18aca3eba043a5bfde5179738b8dae = $(`<div id="html_4a18aca3eba043a5bfde5179738b8dae" style="width: 100.0%; height: 100.0%;">Adresse: Chemin du Feil, 35500 Vitré  Télépnone: N</div>`)[0];
+            popup_963ee699cc5d4058b403c9e138829f22.setContent(html_4a18aca3eba043a5bfde5179738b8dae);
+        
+
+        marker_3b4c8d3faa784832b08a48872893594a.bindPopup(popup_963ee699cc5d4058b403c9e138829f22)
+        ;
+
+        
+    
+    
+            marker_3b4c8d3faa784832b08a48872893594a.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID 19 de Vitré
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_72f9edefadba4a049469904ed0078789 = L.marker(
+                [47.6506194, -2.0917159],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_70e8f2235b9045e98c5d057b18e0b346 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_72f9edefadba4a049469904ed0078789.setIcon(icon_70e8f2235b9045e98c5d057b18e0b346);
+        
+    
+        var popup_d6811788e7ec41b28c2b7b0f3c801381 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b33b5165111c4d36b65a3819ad5e1b2e = $(`<div id="html_b33b5165111c4d36b65a3819ad5e1b2e" style="width: 100.0%; height: 100.0%;">Adresse: Rue Lucien Poulard, 35600 Redon  Télépnone: 0 805 69 08 21</div>`)[0];
+            popup_d6811788e7ec41b28c2b7b0f3c801381.setContent(html_b33b5165111c4d36b65a3819ad5e1b2e);
+        
+
+        marker_72f9edefadba4a049469904ed0078789.bindPopup(popup_d6811788e7ec41b28c2b7b0f3c801381)
+        ;
+
+        
+    
+    
+            marker_72f9edefadba4a049469904ed0078789.bindTooltip(
+                `<div>
+                     Vaccination COVID-19 - CH REDON
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5a51459225d749978fc2290e324e2ac4 = L.marker(
+                [48.3357835, -1.1725823],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_1ccb403e02804093aad750cff2737778 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkpurple", "prefix": "glyphicon"}
+            );
+            marker_5a51459225d749978fc2290e324e2ac4.setIcon(icon_1ccb403e02804093aad750cff2737778);
+        
+    
+        var popup_c6e8be889ddc43aea9b9e21c7b6e8ad5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6dddf69df694445faccefdd803bdc6fd = $(`<div id="html_6dddf69df694445faccefdd803bdc6fd" style="width: 100.0%; height: 100.0%;">Adresse: 1 Rue Louis Lumière, 35133 La Selle-en-Luitré  Télépnone: 0 805 69 08 21</div>`)[0];
+            popup_c6e8be889ddc43aea9b9e21c7b6e8ad5.setContent(html_6dddf69df694445faccefdd803bdc6fd);
+        
+
+        marker_5a51459225d749978fc2290e324e2ac4.bindPopup(popup_c6e8be889ddc43aea9b9e21c7b6e8ad5)
+        ;
+
+        
+    
+    
+            marker_5a51459225d749978fc2290e324e2ac4.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID-19 de Fougères - Espace Aumaillerie
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_ae0da38d8cb04d40ac468cfb4de61142 = L.marker(
+                [47.9348991, -2.3923283],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_4fff6abd404a4c0db848afdfe90d3233 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "cadetblue", "prefix": "glyphicon"}
+            );
+            marker_ae0da38d8cb04d40ac468cfb4de61142.setIcon(icon_4fff6abd404a4c0db848afdfe90d3233);
+        
+    
+        var popup_58a91b2564b84bb7ab33cf6f9562445f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_00f942c6206e4374a55e017f175fdbea = $(`<div id="html_00f942c6206e4374a55e017f175fdbea" style="width: 100.0%; height: 100.0%;">Adresse: 7 Rue du Roi Arthur, 56800 Ploërmel  Télépnone: 02 97 01 99 56</div>`)[0];
+            popup_58a91b2564b84bb7ab33cf6f9562445f.setContent(html_00f942c6206e4374a55e017f175fdbea);
+        
+
+        marker_ae0da38d8cb04d40ac468cfb4de61142.bindPopup(popup_58a91b2564b84bb7ab33cf6f9562445f)
+        ;
+
+        
+    
+    
+            marker_ae0da38d8cb04d40ac468cfb4de61142.bindTooltip(
+                `<div>
+                     GHBA - Centre de vaccination COVID Ploërmel
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3b3ae4aca02e49d79684fd9b28fb2178 = L.marker(
+                [48.089466, -1.6882134],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_3bc65f5fecf04f42b2d5cd0da5e374e9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3b3ae4aca02e49d79684fd9b28fb2178.setIcon(icon_3bc65f5fecf04f42b2d5cd0da5e374e9);
+        
+    
+        var popup_8dec032b08f445b082a8ec7612dd7709 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f7fb5920a82a4702851a7d7bac196479 = $(`<div id="html_f7fb5920a82a4702851a7d7bac196479" style="width: 100.0%; height: 100.0%;">Adresse: 12 Boulevard Albert 1er, 35200 Rennes  Télépnone: 0 805 69 08 21</div>`)[0];
+            popup_8dec032b08f445b082a8ec7612dd7709.setContent(html_f7fb5920a82a4702851a7d7bac196479);
+        
+
+        marker_3b3ae4aca02e49d79684fd9b28fb2178.bindPopup(popup_8dec032b08f445b082a8ec7612dd7709)
+        ;
+
+        
+    
+    
+            marker_3b3ae4aca02e49d79684fd9b28fb2178.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Rennes Bréquigny
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f2e8416f89ac4c2a8b5bebfa1317903a = L.marker(
+                [47.6694828, -2.9803602],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_b55a8c7389bb421db1e991898d53d904 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightblue", "prefix": "glyphicon"}
+            );
+            marker_f2e8416f89ac4c2a8b5bebfa1317903a.setIcon(icon_b55a8c7389bb421db1e991898d53d904);
+        
+    
+        var popup_0ef46c22ce4e4f0cb1a7c643e275ea51 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c47c70bd6a164d7d81e3bb4461279667 = $(`<div id="html_c47c70bd6a164d7d81e3bb4461279667" style="width: 100.0%; height: 100.0%;">Adresse: 2 Rue du Pratel, 56400 Auray  Télépnone: 02 97 01 99 56</div>`)[0];
+            popup_0ef46c22ce4e4f0cb1a7c643e275ea51.setContent(html_c47c70bd6a164d7d81e3bb4461279667);
+        
+
+        marker_f2e8416f89ac4c2a8b5bebfa1317903a.bindPopup(popup_0ef46c22ce4e4f0cb1a7c643e275ea51)
+        ;
+
+        
+    
+    
+            marker_f2e8416f89ac4c2a8b5bebfa1317903a.bindTooltip(
+                `<div>
+                     GHBA - Centre de vaccination COVID Auray
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_5940dc6263d44f6fb9c8fe37f2dad552 = L.marker(
+                [48.1531532, -1.6851809],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_edde1501d8624962b2c8c61fad96b24e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5940dc6263d44f6fb9c8fe37f2dad552.setIcon(icon_edde1501d8624962b2c8c61fad96b24e);
+        
+    
+        var popup_c98c9cb800a94499ae7704f62e60064e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_affd2804943c4df7ad6ac46ad09387a0 = $(`<div id="html_affd2804943c4df7ad6ac46ad09387a0" style="width: 100.0%; height: 100.0%;">Adresse: 3 Rue de Brocéliande, 35760 Saint-Grégoire  Télépnone: 0 805 69 08 21</div>`)[0];
+            popup_c98c9cb800a94499ae7704f62e60064e.setContent(html_affd2804943c4df7ad6ac46ad09387a0);
+        
+
+        marker_5940dc6263d44f6fb9c8fe37f2dad552.bindPopup(popup_c98c9cb800a94499ae7704f62e60064e)
+        ;
+
+        
+    
+    
+            marker_5940dc6263d44f6fb9c8fe37f2dad552.bindTooltip(
+                `<div>
+                     Centre de vaccination de Saint Grégoire - Vaccination Covid-19
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_56024ce9058645fea66364913f0d85e4 = L.marker(
+                [47.5623217, -2.5013616],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_8edab94af21e445d9cd53a76828bb02a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgreen", "prefix": "glyphicon"}
+            );
+            marker_56024ce9058645fea66364913f0d85e4.setIcon(icon_8edab94af21e445d9cd53a76828bb02a);
+        
+    
+        var popup_9f65b5fa85954f6eb75a1c6795d33f36 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b4cb17b0b0c248648bb7d3401db49a77 = $(`<div id="html_b4cb17b0b0c248648bb7d3401db49a77" style="width: 100.0%; height: 100.0%;">Adresse: ZI d'Hinzal, 56190 Muzillac  Télépnone: 02 97 01 99 56</div>`)[0];
+            popup_9f65b5fa85954f6eb75a1c6795d33f36.setContent(html_b4cb17b0b0c248648bb7d3401db49a77);
+        
+
+        marker_56024ce9058645fea66364913f0d85e4.bindPopup(popup_9f65b5fa85954f6eb75a1c6795d33f36)
+        ;
+
+        
+    
+    
+            marker_56024ce9058645fea66364913f0d85e4.bindTooltip(
+                `<div>
+                     GHBA - Centre de vaccination COVID Muzillac
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3c8f060a26ab4546804236fbd45838a3 = L.marker(
+                [48.6416928, -2.0197543],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_6becd25333144705974d5c28a4c58fff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_3c8f060a26ab4546804236fbd45838a3.setIcon(icon_6becd25333144705974d5c28a4c58fff);
+        
+    
+        var popup_058c838d58ed4ff3ae14e40cb385ea1b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_305790b31ec84629b3fdfbf56441dc8d = $(`<div id="html_305790b31ec84629b3fdfbf56441dc8d" style="width: 100.0%; height: 100.0%;">Adresse: 1 Rue Georges Clemenceau, 35400 Saint-Malo  Télépnone: 0 805 69 08 21</div>`)[0];
+            popup_058c838d58ed4ff3ae14e40cb385ea1b.setContent(html_305790b31ec84629b3fdfbf56441dc8d);
+        
+
+        marker_3c8f060a26ab4546804236fbd45838a3.bindPopup(popup_058c838d58ed4ff3ae14e40cb385ea1b)
+        ;
+
+        
+    
+    
+            marker_3c8f060a26ab4546804236fbd45838a3.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID - Centre de vaccination du Naye - Vaccination Covid-19
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_91c96752aef84781b2a4ac82815ae1fb = L.marker(
+                [48.195157, -4.077418],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_cb5c38fd8f7c44d499cbffdd6d4166b7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_91c96752aef84781b2a4ac82815ae1fb.setIcon(icon_cb5c38fd8f7c44d499cbffdd6d4166b7);
+        
+    
+        var popup_331aa0d323f540d3b67bd7412cd569e4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d0c7b11f08814957af9287842491ae0b = $(`<div id="html_d0c7b11f08814957af9287842491ae0b" style="width: 100.0%; height: 100.0%;">Adresse: Roc de Quimill, 29150 Chateaulin  Télépnone: 02 57 18 00 61</div>`)[0];
+            popup_331aa0d323f540d3b67bd7412cd569e4.setContent(html_d0c7b11f08814957af9287842491ae0b);
+        
+
+        marker_91c96752aef84781b2a4ac82815ae1fb.bindPopup(popup_331aa0d323f540d3b67bd7412cd569e4)
+        ;
+
+        
+    
+    
+            marker_91c96752aef84781b2a4ac82815ae1fb.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 Chateaulin - Crozon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_28a613b69bb8497ea61923a4f33a2c73 = L.marker(
+                [48.2484947, -4.4076795],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_d6cbd65566014854bf8aee7303b1d8b4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_28a613b69bb8497ea61923a4f33a2c73.setIcon(icon_d6cbd65566014854bf8aee7303b1d8b4);
+        
+    
+        var popup_1abd68feb9054021b92cdbf2142472d6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fcd1c09ac87d4cf1979936c5a2150383 = $(`<div id="html_fcd1c09ac87d4cf1979936c5a2150383" style="width: 100.0%; height: 100.0%;">Adresse: Roc de Quimill, 29150 Chateaulin  Télépnone: 02 57 18 00 61</div>`)[0];
+            popup_1abd68feb9054021b92cdbf2142472d6.setContent(html_fcd1c09ac87d4cf1979936c5a2150383);
+        
+
+        marker_28a613b69bb8497ea61923a4f33a2c73.bindPopup(popup_1abd68feb9054021b92cdbf2142472d6)
+        ;
+
+        
+    
+    
+            marker_28a613b69bb8497ea61923a4f33a2c73.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 Chateaulin - Crozon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3cac0ba5e2dc40daa09062979c14679c = L.marker(
+                [47.868232, -3.5501505],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_d82720f4ddcf4411b7c94a159385019b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            );
+            marker_3cac0ba5e2dc40daa09062979c14679c.setIcon(icon_d82720f4ddcf4411b7c94a159385019b);
+        
+    
+        var popup_692a9a3e03e04ea79d835ac0eb95f1f4 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e0cb8e47b0fa4af4883af6525e982150 = $(`<div id="html_e0cb8e47b0fa4af4883af6525e982150" style="width: 100.0%; height: 100.0%;">Adresse: 12 Boulevard de la Gare, 29300 Quimperlé  Télépnone: 02 57 18 00 61</div>`)[0];
+            popup_692a9a3e03e04ea79d835ac0eb95f1f4.setContent(html_e0cb8e47b0fa4af4883af6525e982150);
+        
+
+        marker_3cac0ba5e2dc40daa09062979c14679c.bindPopup(popup_692a9a3e03e04ea79d835ac0eb95f1f4)
+        ;
+
+        
+    
+    
+            marker_3cac0ba5e2dc40daa09062979c14679c.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Complexe sportif de Quimperlé - Vaccination Covid-19
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7135da8c4feb489b9bc536c502f622d1 = L.marker(
+                [48.4179019, -4.5481093],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_fd49e7a1d67941d28e749eda6ea0ec1b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_7135da8c4feb489b9bc536c502f622d1.setIcon(icon_fd49e7a1d67941d28e749eda6ea0ec1b);
+        
+    
+        var popup_2a361fab6e8940a1826b4cd961ec26fc = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6bfefa709d7a4e0184c24ccd02db50e6 = $(`<div id="html_6bfefa709d7a4e0184c24ccd02db50e6" style="width: 100.0%; height: 100.0%;">Adresse: Route de Brest, 29820 Guilers  Télépnone: 02 98 14 51 43</div>`)[0];
+            popup_2a361fab6e8940a1826b4cd961ec26fc.setContent(html_6bfefa709d7a4e0184c24ccd02db50e6);
+        
+
+        marker_7135da8c4feb489b9bc536c502f622d1.bindPopup(popup_2a361fab6e8940a1826b4cd961ec26fc)
+        ;
+
+        
+    
+    
+            marker_7135da8c4feb489b9bc536c502f622d1.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Brest Expo Penfeld
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_99ea0e1273ca409e96097bde574d751a = L.marker(
+                [48.3873925, -4.5200688],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_55579c9b1e3e49a68c1e761c9c3616b8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_99ea0e1273ca409e96097bde574d751a.setIcon(icon_55579c9b1e3e49a68c1e761c9c3616b8);
+        
+    
+        var popup_87e96e7bf3f84791832458b90247bcff = L.popup({"maxWidth": "100%"});
+
+        
+            var html_adb88a72001347c0bd7629d8a9c8e32d = $(`<div id="html_adb88a72001347c0bd7629d8a9c8e32d" style="width: 100.0%; height: 100.0%;">Adresse: Route de Brest, 29820 Guilers  Télépnone: 02 98 14 51 43</div>`)[0];
+            popup_87e96e7bf3f84791832458b90247bcff.setContent(html_adb88a72001347c0bd7629d8a9c8e32d);
+        
+
+        marker_99ea0e1273ca409e96097bde574d751a.bindPopup(popup_87e96e7bf3f84791832458b90247bcff)
+        ;
+
+        
+    
+    
+            marker_99ea0e1273ca409e96097bde574d751a.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Brest Expo Penfeld
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fda6a5664d3e40cb8c7d018f43816d18 = L.marker(
+                [47.9076203, -3.8391359],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_474ba01f85b643f3a6898180ec1973e1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
+            );
+            marker_fda6a5664d3e40cb8c7d018f43816d18.setIcon(icon_474ba01f85b643f3a6898180ec1973e1);
+        
+    
+        var popup_39af355c048049dd8acf9521a485bffd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_587ae3e00cf14fcd996cf7ba7f20715a = $(`<div id="html_587ae3e00cf14fcd996cf7ba7f20715a" style="width: 100.0%; height: 100.0%;">Adresse: Rue Per Jakez Helias, 29140 Melgven  Télépnone: 02 57 18 00 61</div>`)[0];
+            popup_39af355c048049dd8acf9521a485bffd.setContent(html_587ae3e00cf14fcd996cf7ba7f20715a);
+        
+
+        marker_fda6a5664d3e40cb8c7d018f43816d18.bindPopup(popup_39af355c048049dd8acf9521a485bffd)
+        ;
+
+        
+    
+    
+            marker_fda6a5664d3e40cb8c7d018f43816d18.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 de Concarneau
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_87b30c7c706c4df0b63d11f52b9fd778 = L.marker(
+                [47.8642282, -4.2172013],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_6ce98b85fa5d4bcea468a9b15ae37f70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_87b30c7c706c4df0b63d11f52b9fd778.setIcon(icon_6ce98b85fa5d4bcea468a9b15ae37f70);
+        
+    
+        var popup_dd7396f12811454a87922c8f21ed61db = L.popup({"maxWidth": "100%"});
+
+        
+            var html_31f626f027d14e9cb8e64470b07a8fde = $(`<div id="html_31f626f027d14e9cb8e64470b07a8fde" style="width: 100.0%; height: 100.0%;">Adresse: Rue Laennec, 29120 Pont-l'Abbé  Télépnone: 02 57 18 00 61</div>`)[0];
+            popup_dd7396f12811454a87922c8f21ed61db.setContent(html_31f626f027d14e9cb8e64470b07a8fde);
+        
+
+        marker_87b30c7c706c4df0b63d11f52b9fd778.bindPopup(popup_dd7396f12811454a87922c8f21ed61db)
+        ;
+
+        
+    
+    
+            marker_87b30c7c706c4df0b63d11f52b9fd778.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Bigouden
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_cd62a13de7c44c759336f8016e3e75c9 = L.marker(
+                [48.5489025, -1.7467441],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_0482c14b05934ce99d3af33ab3c72a91 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_cd62a13de7c44c759336f8016e3e75c9.setIcon(icon_0482c14b05934ce99d3af33ab3c72a91);
+        
+    
+        var popup_334487cf0b4b42788d397a2c0ad74014 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4dfc228a89224d65b0980695c1c697ec = $(`<div id="html_4dfc228a89224d65b0980695c1c697ec" style="width: 100.0%; height: 100.0%;">Adresse: Rue Éléonore Daubrée, 35120 Dol-de-Bretagne  Télépnone: 02 99 48 28 94</div>`)[0];
+            popup_334487cf0b4b42788d397a2c0ad74014.setContent(html_4dfc228a89224d65b0980695c1c697ec);
+        
+
+        marker_cd62a13de7c44c759336f8016e3e75c9.bindPopup(popup_334487cf0b4b42788d397a2c0ad74014)
+        ;
+
+        
+    
+    
+            marker_cd62a13de7c44c759336f8016e3e75c9.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Dol de Bretagne
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_936482e822094df7a039199e3c4fc100 = L.marker(
+                [48.1381919, -1.9644586],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_1db1f36fa1254198a1d3c28299c57944 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_936482e822094df7a039199e3c4fc100.setIcon(icon_1db1f36fa1254198a1d3c28299c57944);
+        
+    
+        var popup_a0e148757fa2461aad1d1c2bd179a06a = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9a2dccb916724e458a7d54d33325f64f = $(`<div id="html_9a2dccb916724e458a7d54d33325f64f" style="width: 100.0%; height: 100.0%;">Adresse: 1 Route d'Iffendic, 35160 Montfort-sur-Meu  Télépnone: 0 805 69 08 21</div>`)[0];
+            popup_a0e148757fa2461aad1d1c2bd179a06a.setContent(html_9a2dccb916724e458a7d54d33325f64f);
+        
+
+        marker_936482e822094df7a039199e3c4fc100.bindPopup(popup_a0e148757fa2461aad1d1c2bd179a06a)
+        ;
+
+        
+    
+    
+            marker_936482e822094df7a039199e3c4fc100.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID-19 de Brocéliande
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e7dbdd5a95ab4f74b249d1623220a0d8 = L.marker(
+                [48.5855916, -3.7907231],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_084c4394c97243f3a685da0ef191ccbb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e7dbdd5a95ab4f74b249d1623220a0d8.setIcon(icon_084c4394c97243f3a685da0ef191ccbb);
+        
+    
+        var popup_89cef91af9b34033b38d0e03b0a90711 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1451f9abbd3f4709be95b000b3efd9d8 = $(`<div id="html_1451f9abbd3f4709be95b000b3efd9d8" style="width: 100.0%; height: 100.0%;">Adresse: Langolvas, 29610 Garlan  Télépnone: 02 57 18 00 61</div>`)[0];
+            popup_89cef91af9b34033b38d0e03b0a90711.setContent(html_1451f9abbd3f4709be95b000b3efd9d8);
+        
+
+        marker_e7dbdd5a95ab4f74b249d1623220a0d8.bindPopup(popup_89cef91af9b34033b38d0e03b0a90711)
+        ;
+
+        
+    
+    
+            marker_e7dbdd5a95ab4f74b249d1623220a0d8.bindTooltip(
+                `<div>
+                     Centre de vaccination du Pays de Morlaix - Centre de vaccination COVID 19
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_97617fd191414a1588121a7fcad0be65 = L.marker(
+                [48.2740829, -3.5594698],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_ebf8e3adb1284c33b376fd7c98017867 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_97617fd191414a1588121a7fcad0be65.setIcon(icon_ebf8e3adb1284c33b376fd7c98017867);
+        
+    
+        var popup_5182034ba9194d4cb0d01cac98c1fd8b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fd75c06ce37c4faba9ba454020309fb0 = $(`<div id="html_fd75c06ce37c4faba9ba454020309fb0" style="width: 100.0%; height: 100.0%;">Adresse: 4 Rue Jean Monnet, 29270 Carhaix-Plouguer  Télépnone: 02 98 14 51 43</div>`)[0];
+            popup_5182034ba9194d4cb0d01cac98c1fd8b.setContent(html_fd75c06ce37c4faba9ba454020309fb0);
+        
+
+        marker_97617fd191414a1588121a7fcad0be65.bindPopup(popup_5182034ba9194d4cb0d01cac98c1fd8b)
+        ;
+
+        
+    
+    
+            marker_97617fd191414a1588121a7fcad0be65.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID-19 Carhaix
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_0287b8f8866b46bfacf01e346b1a28df = L.marker(
+                [48.4144381, -1.7514866],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_2d57b3310073402fb9602a5c4e9f5161 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_0287b8f8866b46bfacf01e346b1a28df.setIcon(icon_2d57b3310073402fb9602a5c4e9f5161);
+        
+    
+        var popup_4bd641eebd62422a9117c34c106765df = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b861da39a33e4575944ec7743b149e11 = $(`<div id="html_b861da39a33e4575944ec7743b149e11" style="width: 100.0%; height: 100.0%;">Adresse: Rue Malouas, 35270 Combourg  Télépnone: 0 800 00 91 10</div>`)[0];
+            popup_4bd641eebd62422a9117c34c106765df.setContent(html_b861da39a33e4575944ec7743b149e11);
+        
+
+        marker_0287b8f8866b46bfacf01e346b1a28df.bindPopup(popup_4bd641eebd62422a9117c34c106765df)
+        ;
+
+        
+    
+    
+            marker_0287b8f8866b46bfacf01e346b1a28df.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 de la CPTS de Bretagne Romantique
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_7eb51165d1c8487aa0dd91392f7ed300 = L.marker(
+                [47.5248141, -2.7700956],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_41389009b48542568f899b0a062d4691 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "black", "prefix": "glyphicon"}
+            );
+            marker_7eb51165d1c8487aa0dd91392f7ed300.setIcon(icon_41389009b48542568f899b0a062d4691);
+        
+    
+        var popup_ae417820ffa4439fbbe7f3b0eb766417 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8defdc13d5fd408690bbe058ffd21cc7 = $(`<div id="html_8defdc13d5fd408690bbe058ffd21cc7" style="width: 100.0%; height: 100.0%;">Adresse: 2964 Rue Père Marie Joseph Coudrin, 56370 Sarzeau  Télépnone: 02 97 01 99 56</div>`)[0];
+            popup_ae417820ffa4439fbbe7f3b0eb766417.setContent(html_8defdc13d5fd408690bbe058ffd21cc7);
+        
+
+        marker_7eb51165d1c8487aa0dd91392f7ed300.bindPopup(popup_ae417820ffa4439fbbe7f3b0eb766417)
+        ;
+
+        
+    
+    
+            marker_7eb51165d1c8487aa0dd91392f7ed300.bindTooltip(
+                `<div>
+                     GH Brocéliande Atlantique (GHBA) - Centre de vaccination Covid-19 Sarzeau
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_4fb4b2b974d64865b749d55a7d9f133e = L.marker(
+                [47.484727, -3.1212589],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_33632401ea09403e973fdd3b95eb8bdd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkpurple", "prefix": "glyphicon"}
+            );
+            marker_4fb4b2b974d64865b749d55a7d9f133e.setIcon(icon_33632401ea09403e973fdd3b95eb8bdd);
+        
+    
+        var popup_427c199f29754448ad3ca875f4b84b34 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2748500b805a49cb963e173ca02eca86 = $(`<div id="html_2748500b805a49cb963e173ca02eca86" style="width: 100.0%; height: 100.0%;">Adresse: 6 Rue Jules Ferry, 56170 Quiberon  Télépnone: 02 97 01 99 56</div>`)[0];
+            popup_427c199f29754448ad3ca875f4b84b34.setContent(html_2748500b805a49cb963e173ca02eca86);
+        
+
+        marker_4fb4b2b974d64865b749d55a7d9f133e.bindPopup(popup_427c199f29754448ad3ca875f4b84b34)
+        ;
+
+        
+    
+    
+            marker_4fb4b2b974d64865b749d55a7d9f133e.bindTooltip(
+                `<div>
+                     GHBA - Centre de vaccination COVID19 de Quiberon
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_350d57e56a27404ea3af8101b046ced6 = L.marker(
+                [48.1111619, -1.648016],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_9701c2ba47334fed910fe1a16dfbba6b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightred", "prefix": "glyphicon"}
+            );
+            marker_350d57e56a27404ea3af8101b046ced6.setIcon(icon_9701c2ba47334fed910fe1a16dfbba6b);
+        
+    
+        var popup_2efc610d4cc240a0a18f68761a949efb = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8561de50613d4b0d9a134c84b97fb28f = $(`<div id="html_8561de50613d4b0d9a134c84b97fb28f" style="width: 100.0%; height: 100.0%;">Adresse: Avenue François Château Rennes France, 35000 Rennes  Télépnone: 0 800 00 91 10</div>`)[0];
+            popup_2efc610d4cc240a0a18f68761a949efb.setContent(html_8561de50613d4b0d9a134c84b97fb28f);
+        
+
+        marker_350d57e56a27404ea3af8101b046ced6.bindPopup(popup_2efc610d4cc240a0a18f68761a949efb)
+        ;
+
+        
+    
+    
+            marker_350d57e56a27404ea3af8101b046ced6.bindTooltip(
+                `<div>
+                     Centre de vaccinations Sapeurs-Pompiers -Plaine de Baud
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_90a49fbbf518474e99cf39ea7958429c = L.marker(
+                [48.6330551, -2.0654254],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_7b1e374eaea14dba9abf4bd81c30f153 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "gray", "prefix": "glyphicon"}
+            );
+            marker_90a49fbbf518474e99cf39ea7958429c.setIcon(icon_7b1e374eaea14dba9abf4bd81c30f153);
+        
+    
+        var popup_24ec82572d19413082d82fb91ceff2bd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b2e748a687be437eb35c26421f4acf09 = $(`<div id="html_b2e748a687be437eb35c26421f4acf09" style="width: 100.0%; height: 100.0%;">Adresse: 2 Rue Henri Dunant, 35800 Dinard  Télépnone: 0 800 00 91 10</div>`)[0];
+            popup_24ec82572d19413082d82fb91ceff2bd.setContent(html_b2e748a687be437eb35c26421f4acf09);
+        
+
+        marker_90a49fbbf518474e99cf39ea7958429c.bindPopup(popup_24ec82572d19413082d82fb91ceff2bd)
+        ;
+
+        
+    
+    
+            marker_90a49fbbf518474e99cf39ea7958429c.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - CH de Dinard
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_c94436f4150346298bb268c825331336 = L.marker(
+                [48.0922984, -1.6152794],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_f7ac80934dc94e3695b434a50543a4a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "darkblue", "prefix": "glyphicon"}
+            );
+            marker_c94436f4150346298bb268c825331336.setIcon(icon_f7ac80934dc94e3695b434a50543a4a9);
+        
+    
+        var popup_029a91b7321f40aab92891d76b3b8b0d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2d95fcd2397d4ac597e681506613807f = $(`<div id="html_2d95fcd2397d4ac597e681506613807f" style="width: 100.0%; height: 100.0%;">Adresse: Allée Saint Marcel, 35135 Chantepie  Télépnone: 0 800 00 91 10</div>`)[0];
+            popup_029a91b7321f40aab92891d76b3b8b0d.setContent(html_2d95fcd2397d4ac597e681506613807f);
+        
+
+        marker_c94436f4150346298bb268c825331336.bindPopup(popup_029a91b7321f40aab92891d76b3b8b0d)
+        ;
+
+        
+    
+    
+            marker_c94436f4150346298bb268c825331336.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 - Chantepie
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_846a5237945041e2bb45870acaf790c1 = L.marker(
+                [48.677592, -1.865523],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_6afb8941cb8440af8734b72e2eeb32d1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgreen", "prefix": "glyphicon"}
+            );
+            marker_846a5237945041e2bb45870acaf790c1.setIcon(icon_6afb8941cb8440af8734b72e2eeb32d1);
+        
+    
+        var popup_fb701bc40dc14dc19296b37d972fd06e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a3e39b3baed6487582014de948b39c67 = $(`<div id="html_a3e39b3baed6487582014de948b39c67" style="width: 100.0%; height: 100.0%;">Adresse: Rue d'Arnstein, 35260 Cancale  Télépnone: 02 99 89 94 90</div>`)[0];
+            popup_fb701bc40dc14dc19296b37d972fd06e.setContent(html_a3e39b3baed6487582014de948b39c67);
+        
+
+        marker_846a5237945041e2bb45870acaf790c1.bindPopup(popup_fb701bc40dc14dc19296b37d972fd06e)
+        ;
+
+        
+    
+    
+            marker_846a5237945041e2bb45870acaf790c1.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID-19 - Ville de Cancale
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b230c675559e46dc839d314545932bc7 = L.marker(
+                [48.0823454, -1.6815587],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_3cda74fe05564e378b2db35a29177762 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "purple", "prefix": "glyphicon"}
+            );
+            marker_b230c675559e46dc839d314545932bc7.setIcon(icon_3cda74fe05564e378b2db35a29177762);
+        
+    
+        var popup_9156784a0dc44a6f847a36595a12091c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_512131561bf04fcd92a86cbe4c23c991 = $(`<div id="html_512131561bf04fcd92a86cbe4c23c991" style="width: 100.0%; height: 100.0%;">Adresse: 5 Rue du Bosphore, 35200 Rennes  Télépnone: 07 86 57 87 37</div>`)[0];
+            popup_9156784a0dc44a6f847a36595a12091c.setContent(html_512131561bf04fcd92a86cbe4c23c991);
+        
+
+        marker_b230c675559e46dc839d314545932bc7.bindPopup(popup_9156784a0dc44a6f847a36595a12091c)
+        ;
+
+        
+    
+    
+            marker_b230c675559e46dc839d314545932bc7.bindTooltip(
+                `<div>
+                     Centre de vaccination COVID-19 du centre commercial ALMA
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_77b07798a4b24e57aaa2719fc48fa8ab = L.marker(
+                [47.9635322, -1.7970318],
+                {"zoomStart": 12}
+            ).addTo(map_1f40f64d502541f4b9ff7361e5d2fba2);
+        
+    
+            var icon_a437781ac9b048c5ac02bdb736d03f0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightblue", "prefix": "glyphicon"}
+            );
+            marker_77b07798a4b24e57aaa2719fc48fa8ab.setIcon(icon_a437781ac9b048c5ac02bdb736d03f0b);
+        
+    
+        var popup_c752e115bda546b9a897eb8273503a43 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a1bcdf353f0040779b75a85837108d25 = $(`<div id="html_a1bcdf353f0040779b75a85837108d25" style="width: 100.0%; height: 100.0%;">Adresse: Rue du Commandant Charcot, 35580 Guichen  Télépnone: 02 99 57 31 25</div>`)[0];
+            popup_c752e115bda546b9a897eb8273503a43.setContent(html_a1bcdf353f0040779b75a85837108d25);
+        
+
+        marker_77b07798a4b24e57aaa2719fc48fa8ab.bindPopup(popup_c752e115bda546b9a897eb8273503a43)
+        ;
+
+        
+    
+    
+            marker_77b07798a4b24e57aaa2719fc48fa8ab.bindTooltip(
+                `<div>
+                     Centre de vaccination Covid-19 Guichen
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
