@@ -174,27 +174,116 @@ cle_api = dico_api['GraphHopper']
 gh_client = GraphHopper(api_key= cle_api)
 
 
-def dist_et_temps_trajet(base_donnee, adresse_depart,distance_max,moyen_transport, client):
+def metro_plus_proche_centre(base_donnee, centre_voulu, gps_adresse_voulu, client):
+    dist_max = 99999999999
+    if centre_voulu != "Nul":
+        gps_lieu_voulu = client.address_to_latlong(base_donnee[centre_voulu]["adresse"])
+    else:
+        gps_lieu_voulu = gps_adresse_voulu
+    gps_metro = {"Kennedy": (48.121257, -1.713264), "Villejean-Université": (48.121263, -1.704044),
+                 "Pontchaillou": (48.120901, -1.694545), "Anatole": (48.118070, -1.687643),
+                 "Sainte-Anne": (48.114498, -1.680490), "République": (48.109695, -1.679261),
+                 "Charles de Gaulle": (48.106485, -1.676789), "Gares" : (48.103842, -1.671933),
+                 "Jacques Cartier" : (48.097531, -1.675333), "Clemenceau": (48.094157, -1.680446), "Henri Fréville" : (48.087648, -1.674745),
+                 "Italie": (48.086573, -1.667848) , "Triangle": (48.086386, -1.660414), "Le Blosne" : (48.087689, -1.654271) ,
+                 "La Poterie": (48.087513, -1.644571)}
+
+    for cle, val in gps_metro.items():
+        gps = [gps_lieu_voulu]
+        gps.append(val)
+        dist = client.distance(gps, unit="km")
+        if dist_max > dist:
+            dist_max = dist
+            nom_arret_plus_proche = cle
+
+    return nom_arret_plus_proche
+
+
+def dist_et_temps_trajet(base_donnee, adresse_depart, nom_centre, distance_max,moyen_transport, client):
     gps_depart = client.address_to_latlong(adresse_depart)
-    dico_dist_km = {}
-    dico_temps_min = {}
-    for cle, val in base_donnee.items():
-        center_gps = client.address_to_latlong(val["adresse"][0])
-        l_lat_lont = [gps_depart]
-        l_lat_lont.append(center_gps)
-        dist = client.distance(l_lat_lont, unit="km")
-        temps_trajet = client.duration(l_lat_lont,vehicle=moyen_transport, unit="min")
-        if dist < distance_max :
-            dico_dist_km["De " + adresse_depart + " à " + cle] = round(dist, 1)
-            dico_temps_min["De " + adresse_depart + " à " + cle] = round(temps_trajet)
+    dico_dist_temps = {}
+    if nom_centre == "Nul":
+        for cle, val in base_donnee.items():
+            center_gps = client.address_to_latlong(val["adresse"][0])
+            l_lat_lont = [gps_depart]
+            l_lat_lont.append(center_gps)
+            dist = client.distance(l_lat_lont, unit="km")
+            temps_trajet = client.duration(l_lat_lont,vehicle=moyen_transport, unit="min")
+            if dist < distance_max :
+                dico_dist_temps[cle] = { "distance" : round(dist, 1), "temps de trajet" : round(temps_trajet)}
 
-    return dico_dist_km, dico_temps_min
+    else:
+        adresse_centre = base_donnee[nom_centre]["adresse"][0]
+        for cle, val in base_donnee.items():
+            center_gps = client.address_to_latlong(adresse_centre)
+            l_lat_lont = [gps_depart]
+            l_lat_lont.append(center_gps)
+            dist = client.distance(l_lat_lont, unit="km")
+            temps_trajet = client.duration(l_lat_lont, vehicle=moyen_transport, unit="min")
+            if dist < distance_max:
+                dico_dist_temps[cle] = {"distance": round(dist, 1), "temps de trajet": round(temps_trajet)}
 
-#def trajet_metro(gps_metro):
+    return dico_dist_temps
+
+def choix_centre(base_donnee, adresse_depart, distance_max, moyen_transport, client):
+    dico_centre_proche = dist_et_temps_trajet(base_donnee, adresse_depart, "Nul", distance_max, moyen_transport, client)
+    compteur = 0
+    dico_indice = {}
+    print("\n", "Dans quel centre souhaitez-vous vous rendre ? ", "\n")
+    for cle2, val in dico_centre_proche.items():
+        compteur += 1
+        print("     Centre numéro {} : Pour aller de {} à {} il y a une distance de {}km.".format(compteur, adresse_depart, cle2, dico_centre_proche[cle2]["distance"]))
+        dico_indice[cle2] = compteur
+    print("\n","Indiquez le numéro associé au centre de votre choix : ", end="")
+    n_centre = int(input())
+    for keys, val in dico_indice.items():
+        if val == n_centre :
+            centre_choisi = keys
+
+    return(centre_choisi)
+
+def choix_moyen_transport():
+    l_moyen_transport = ["car", "foot", "bike", "scooter", "metro"]
+    print("\n", " Quel moyen de transport souhaitez-vous utiliser ? ", "\n")
+    for i in range(len(l_moyen_transport)):
+        print(" Choix {} : si le moyen de transport est {} ! ".format(i, l_moyen_transport[i]))
+    print("\n", "   Indiquez le numéro associé à votre choix : ", end="")
+    choix = int(input())
+    moyen_transport = l_moyen_transport[choix]
+    return moyen_transport
 
 
 
-gps_metro = { "Kennedy": (48.121404, -1.708946), "Villejean-Université" : (48.121265, -1.704041), "Pontchaillou" : (48.120901, -1.694545), "Anatole" : (48.119072, -1.685926), "Sainte-Anne" : (48.114620, -1.680837), "République" : (48.110027, -1.679200), "Charles de Gaulle" : (48.106485, -1.676789), "La Poterie" : (48.087495, -1.644572)}
+def itinéraire(base_donnee, client):
+    moyen_transport = choix_moyen_transport()
+    print("Entrez votre adresse : ", end="")
+    adresse_depart = str(input())
+    print("Entrez la distance maximum que vous souhaitez parcourir (en km) : ", end="")
+    distance_max = int(input())
+    print("")
+    liste_arret_metro = ["Kennedy", "Villejean-Université","Pontchaillou", "Anatole","Sainte-Anne", "République","Charles de Gaulle", "Gares" ,"Jacques Cartier" , "Clemenceau", "Henri Fréville" ,"Italie", "Triangle", "Le Blosne","La Poterie"]
+    gps_depart = client.address_to_latlong(adresse_depart)
+    nom_centre = choix_centre(base_donnee, adresse_depart, distance_max, moyen_transport, client)
+    dico_temps_dist = dist_et_temps_trajet(base_donnee, adresse_depart,nom_centre, distance_max, moyen_transport, client)
+    if moyen_transport != "metro":
+        dist, temps = dico_temps_dist[nom_centre]["distance"], dico_temps_dist[nom_centre]["temps de trajet"]
+
+        print( dist, temps, moyen_transport, nom_centre )
+    else:
+        arret_proche_du_centre = metro_plus_proche_centre(base_donnee, nom_centre, "Nul", client)
+        arret_proche_adresse_depart = metro_plus_proche_centre(base_donnee, "Nul", gps_depart, client )
+        for i in range(len(liste_arret_metro)):
+            if liste_arret_metro[i] == arret_proche_adresse_depart:
+                borne1 = i
+            if liste_arret_metro[i] == arret_proche_du_centre:
+                borne2 = i
+        liste_itiniraire = []
+        for n in range(borne1, borne2 + 1):
+            liste_itiniraire.append(liste_arret_metro[n])
+
+    print( adresse_depart, liste_itiniraire, nom_centre)
+
+
 
 
 
@@ -217,7 +306,6 @@ list_coded_name= loading_coded_name(link_list)
 
 center_dlb_list= coded_split(list_coded_name)
 
-
 dico_nom_centre = visit_motives(center_dlb_list)
 
 #pprint(dico_nom_centre)
@@ -225,12 +313,21 @@ dico_nom_centre = visit_motives(center_dlb_list)
 base_donnee = base_de_donnee(center_dlb_list, dico_nom_centre)
 #pprint(base_donnee)
 
-
-#Moyen transport possible :  [“car”, “foot”, “bike”, “scooter”, "metro"]
-pprint(dist_et_temps_trajet(base_donnee, "Place de la République, Rennes, France",5,"foot", gh_client))
-
 #Horaire(base_donnee)
 #Map_outpout(base_donnee)
+
+#Moyen transport possible :  [“car”, “foot”, “bike”, “scooter”, "metro"]
+#pprint(dist_et_temps_trajet(base_donnee, "Place de la République, Rennes, France",5,"foot", gh_client))
+
+#print(metro_plus_proche_centre(base_donnee, "Centre de vaccination COVID-19 du centre commercial ALMA", gh_client))
+#choix_centre(base_donnee, "Place de la République, Rennes, France",5,"foot", gh_client)
+
+itinéraire(base_donnee, gh_client)
+"Place de la République, Rennes, France"  #--->Adresse utilisé pour effectuer les tests
+"Place Sainte-Anne, Rennes, France"       #--->Adresse utilisé pour effectuer les tests
+"236 BIS Rue de Nantes, Saint-Jacques-de-la-Lande, 35136, France"  #--->Adresse utilisé pour effectuer les tests
+
+
 #SECTION 3 TESTS
 
 
