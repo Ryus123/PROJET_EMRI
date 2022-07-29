@@ -2,6 +2,8 @@
 
 #SECTION 1 IMPORTS
 import os
+import sys
+
 import requests
 import json
 from pprint import pprint
@@ -135,17 +137,27 @@ def base_de_donnee(file_json_request_list, center_name_motive):
 
     return base_donnée
 
-def Horaire(base_de_donnee): #---> on travail sur la base de donnée trié et stocké pour simplifier le code
-    j_semaine = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]  #----> jour numéroter de 0 à 6 dans la base de donnée
+def Horaire(base_de_donnee, n_centre='Nul'): #---> on travail sur la base de donnée trié et stocké pour simplifier le code
+    j_semaine = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"]  #----> jour numéroter de 0 à 6 dans la base de donnée
                                                                                         #on utilise les numéros comme indince de la liste pour #
-                                                                                        #les convertir en jour de la semaine
-    for name in base_de_donnee.keys():
-        horaire = base_de_donnee[name]["agenda"][0]
-        print("\n","======== Le centre : {} ========".format(name), "\n")
+    if n_centre == 'Nul':                                                                               #les convertir en jour de la semaine
+        for name in base_de_donnee.keys():
+            horaire = base_de_donnee[name]["agenda"][0]
+            print("\n","======== Le centre : {} ========".format(name), "\n")
+            for i in range(len(horaire)):
+                jour, heure_ouv, heure_ferm = horaire[i]["day"], horaire[i]["ranges"][0][0], horaire[i]["ranges"][0][1] #récupère les heure d'ouverture et de fermeture dans une sous-liste de liste dans la base de donnée
+                days = j_semaine[jour]
+                print("est ouvert le {} de {} à {} !".format(days, heure_ouv, heure_ferm))
+    else:
+        horaire = base_de_donnee[n_centre]["agenda"][0]
+        print("\n", "======== Le centre : {} ========".format(n_centre), "\n")
         for i in range(len(horaire)):
-            jour, heure_ouv, heure_ferm = horaire[i]["day"], horaire[i]["ranges"][0][0], horaire[i]["ranges"][0][1] #récupère les heure d'ouverture et de fermeture dans une sous-liste de liste dans la base de donnée
+            jour, heure_ouv, heure_ferm = horaire[i]["day"], horaire[i]["ranges"][0][0], horaire[i]["ranges"][0][
+                1]  # récupère les heure d'ouverture et de fermeture dans une sous-liste de liste dans la base de donnée
             days = j_semaine[jour]
-            print("Est ouvert le {} de {} à {} !".format(days, heure_ouv, heure_ferm))
+            print("est ouvert le {} de {} à {} !".format(days, heure_ouv, heure_ferm))
+
+
 
 
 def Map_outpout(base_donnee):
@@ -158,7 +170,6 @@ def Map_outpout(base_donnee):
         adresse= base_donnee[center_name]["adresse"][0]
         numero=base_donnee[center_name]["numero"][0]
         color_indice= random.randint(0, (len(color))-1)
-
 
 
         for geo in long_lat:
@@ -179,7 +190,7 @@ def metro_plus_proche_centre(base_donnee, centre_voulu, gps_adresse_voulu, clien
     if centre_voulu != "Nul":
         gps_lieu_voulu = client.address_to_latlong(base_donnee[centre_voulu]["adresse"])
     else:
-        gps_lieu_voulu = gps_adresse_voulu
+        gps_lieu_voulu = gps_adresse_voulu                                                          #initialisation des coordonnées gps de chaque station de metro (récupérer depuis google maps)
     gps_metro = {"Kennedy": (48.121257, -1.713264), "Villejean-Université": (48.121263, -1.704044),
                  "Pontchaillou": (48.120901, -1.694545), "Anatole": (48.118070, -1.687643),
                  "Sainte-Anne": (48.114498, -1.680490), "République": (48.109695, -1.679261),
@@ -188,18 +199,18 @@ def metro_plus_proche_centre(base_donnee, centre_voulu, gps_adresse_voulu, clien
                  "Italie": (48.086573, -1.667848) , "Triangle": (48.086386, -1.660414), "Le Blosne" : (48.087689, -1.654271) ,
                  "La Poterie": (48.087513, -1.644571)}
 
-    for cle, val in gps_metro.items():
+    for cle, val in gps_metro.items(): #Analyse la distance entre chaque station de metro et le point de depart
         gps = [gps_lieu_voulu]
         gps.append(val)
         dist = client.distance(gps, unit="km")
-        if dist_max > dist:
+        if dist_max > dist:             #Compare chaque distance
             dist_max = dist
             nom_arret_plus_proche = cle
 
-    return nom_arret_plus_proche
+    return nom_arret_plus_proche     #---> retourne la station avec le distance la plus courte
 
 
-def dist_et_temps_trajet(base_donnee, adresse_depart, nom_centre, distance_max,moyen_transport, client):
+def dist_et_temps_trajet(base_donnee, adresse_depart, nom_centre, distance_max,moyen_transport, client):#cherche la distance et le temps de trajet entre le point de depart et chaque centre
     gps_depart = client.address_to_latlong(adresse_depart)
     dico_dist_temps = {}
     if nom_centre == "Nul":
@@ -210,7 +221,8 @@ def dist_et_temps_trajet(base_donnee, adresse_depart, nom_centre, distance_max,m
             dist = client.distance(l_lat_lont, unit="km")
             temps_trajet = client.duration(l_lat_lont,vehicle=moyen_transport, unit="min")
             if dist < distance_max :
-                dico_dist_temps[cle] = { "distance" : round(dist, 1), "temps de trajet" : round(temps_trajet)}
+                dico_dist_temps[cle] = { "distance" : round(dist, 1), "temps de trajet" : round(temps_trajet)} #si le centre est à une distance inférieur a la distance maximum que souhaite parcourir l'utilisateur
+                                                                                                                #associé le nom du centre à sa distance et au temps de trajet nécessaire pour y aller
 
     else:
         adresse_centre = base_donnee[nom_centre]["adresse"][0]
@@ -222,18 +234,21 @@ def dist_et_temps_trajet(base_donnee, adresse_depart, nom_centre, distance_max,m
             temps_trajet = client.duration(l_lat_lont, vehicle=moyen_transport, unit="min")
             if dist < distance_max:
                 dico_dist_temps[cle] = {"distance": round(dist, 1), "temps de trajet": round(temps_trajet)}
-
-    return dico_dist_temps
+    if len(dico_dist_temps.keys()) >0:
+        return dico_dist_temps
+    else:
+        print("Relancez le programme en utilisant une distance max plus grande ! ")
+        sys.exit()
 
 def choix_centre(base_donnee, adresse_depart, distance_max, moyen_transport, client):
-    dico_centre_proche = dist_et_temps_trajet(base_donnee, adresse_depart, "Nul", distance_max, moyen_transport, client)
+    dico_centre_proche = dist_et_temps_trajet(base_donnee, adresse_depart, "Nul", distance_max, str(moyen_transport), client)
     compteur = 0
     dico_indice = {}
     print("\n", "Dans quel centre souhaitez-vous vous rendre ? ", "\n")
     for cle2, val in dico_centre_proche.items():
         compteur += 1
         print("     Centre numéro {} : Pour aller de {} à {} il y a une distance de {}km.".format(compteur, adresse_depart, cle2, dico_centre_proche[cle2]["distance"]))
-        dico_indice[cle2] = compteur
+        dico_indice[cle2] = compteur #Associe un numero (pour le choix du centre) à chaque centre afin de pouvoir retrouver le centre choisi par l'utilisateur
     print("\n","Indiquez le numéro associé au centre de votre choix : ", end="")
     n_centre = int(input())
     for keys, val in dico_indice.items():
@@ -243,12 +258,20 @@ def choix_centre(base_donnee, adresse_depart, distance_max, moyen_transport, cli
     return(centre_choisi)
 
 def choix_moyen_transport():
-    l_moyen_transport = ["car", "foot", "bike", "scooter", "metro"]
+    l_moyen_transport = ["car", "foot", "metro"]
     print("\n", " Quel moyen de transport souhaitez-vous utiliser ? ", "\n")
+    compteur= 0
     for i in range(len(l_moyen_transport)):
+        compteur += 1
         print(" Choix {} : si le moyen de transport est {} ! ".format(i, l_moyen_transport[i]))
     print("\n", "   Indiquez le numéro associé à votre choix : ", end="")
+
     choix = int(input())
+    while choix > compteur:
+        print("Réessayez avec une valeur correcte : ", end="")
+        choix = int(input())
+
+
     moyen_transport = l_moyen_transport[choix]
     return moyen_transport
 
@@ -261,31 +284,29 @@ def itinéraire(base_donnee, client):
     print("Entrez la distance maximum que vous souhaitez parcourir (en km) : ", end="")
     distance_max = int(input())
     print("")
-    liste_arret_metro = ["Kennedy", "Villejean-Université","Pontchaillou", "Anatole","Sainte-Anne", "République","Charles de Gaulle", "Gares" ,"Jacques Cartier" , "Clemenceau", "Henri Fréville" ,"Italie", "Triangle", "Le Blosne","La Poterie"]
     gps_depart = client.address_to_latlong(adresse_depart)
     nom_centre = choix_centre(base_donnee, adresse_depart, distance_max, moyen_transport, client)
     dico_temps_dist = dist_et_temps_trajet(base_donnee, adresse_depart,nom_centre, distance_max, moyen_transport, client)
     if moyen_transport != "metro":
         dist, temps = dico_temps_dist[nom_centre]["distance"], dico_temps_dist[nom_centre]["temps de trajet"]
 
-        print( dist, temps, moyen_transport, nom_centre )
+        return dist, temps, moyen_transport, nom_centre, adresse_depart
     else:
         arret_proche_du_centre = metro_plus_proche_centre(base_donnee, nom_centre, "Nul", client)
         arret_proche_adresse_depart = metro_plus_proche_centre(base_donnee, "Nul", gps_depart, client )
-        for i in range(len(liste_arret_metro)):
-            if liste_arret_metro[i] == arret_proche_adresse_depart:
-                borne1 = i
-            if liste_arret_metro[i] == arret_proche_du_centre:
-                borne2 = i
-        liste_itiniraire = []
-        for n in range(borne1, borne2 + 1):
-            liste_itiniraire.append(liste_arret_metro[n])
 
-    print( adresse_depart, liste_itiniraire, nom_centre)
+        return adresse_depart, arret_proche_adresse_depart, arret_proche_du_centre, nom_centre
 
-
-
-
+def itinéraire_mit_en_forme(base_donnee, client):
+    l = itinéraire(base_donnee, client)
+    if len(l) == 5:
+        dist, temps, moyen_transport, nom_centre, adresse_depart = l[0], l[1], l[2], l[3], l[4]
+        print("\n","Pour aller de {} à {} il y a une distance de {} km en utilisant le moyen de transport : {}, vous mettrez {} minutes !".format(adresse_depart, nom_centre, dist, moyen_transport, temps))
+        Horaire(base_donnee, nom_centre)
+    else:
+        adresse_depart, arret_proche_adresse_depart, arret_proche_du_centre, nom_centre = l[0], l[1], l[2], l[3]
+        print("\n","Pour aller de {} à {} en vous y rendant en métro vous devrez d'abord prendre le métro à la station {} puis descendre à la station {} ! ".format(adresse_depart, nom_centre, arret_proche_adresse_depart, arret_proche_du_centre ))
+        Horaire(base_donnee, nom_centre)
 
 
 #Section 3:
@@ -322,11 +343,12 @@ base_donnee = base_de_donnee(center_dlb_list, dico_nom_centre)
 #print(metro_plus_proche_centre(base_donnee, "Centre de vaccination COVID-19 du centre commercial ALMA", gh_client))
 #choix_centre(base_donnee, "Place de la République, Rennes, France",5,"foot", gh_client)
 
-itinéraire(base_donnee, gh_client)
+
 "Place de la République, Rennes, France"  #--->Adresse utilisé pour effectuer les tests
 "Place Sainte-Anne, Rennes, France"       #--->Adresse utilisé pour effectuer les tests
 "236 BIS Rue de Nantes, Saint-Jacques-de-la-Lande, 35136, France"  #--->Adresse utilisé pour effectuer les tests
 
+itinéraire_mit_en_forme(base_donnee, gh_client)
 
 #SECTION 3 TESTS
 
